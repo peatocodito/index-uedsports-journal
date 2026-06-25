@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>世界杯 · 稳定入口与页面说明</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: linear-gradient(145deg, #fce4b4 0%, #f8d084 50%, #f4bc6c 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem 1rem;
+            line-height: 1.6;
+            color: #2b211b;
+        }
+
+        .page-wrapper {
+            max-width: 820px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        /* 白色内容卡片 —— 统一圆角与柔和阴影 */
+        .card {
+            background: #ffffff;
+            border-radius: 36px;
+            box-shadow: 0 20px 35px -10px rgba(140, 80, 30, 0.2), 0 8px 15px rgba(255, 245, 220, 0.4);
+            padding: 2.2rem 2.5rem;
+            margin-bottom: 2rem;
+            transition: box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            box-shadow: 0 24px 40px -12px rgba(150, 80, 20, 0.25);
+        }
+
+        /* 标题层级 */
+        h1 {
+            font-size: 2.6rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #7a4d2e, #a5683a);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
+        }
+
+        .hero-sub {
+            font-size: 1.1rem;
+            color: #5b4032;
+            border-left: 5px solid #e3a156;
+            padding-left: 1rem;
+            margin: 0.6rem 0 1rem 0;
+            opacity: 0.85;
+        }
+
+        h2 {
+            font-size: 1.6rem;
+            font-weight: 500;
+            color: #3d2c1f;
+            border-bottom: 2px solid #f0d5b6;
+            padding-bottom: 0.4rem;
+            margin-bottom: 1.2rem;
+            letter-spacing: -0.01em;
+        }
+
+        h3 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin: 0.8rem 0 0.3rem 0;
+            color: #4f3724;
+        }
+
+        /* 正文与列表 */
+        p {
+            margin-bottom: 1rem;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        ul li {
+            position: relative;
+            padding-left: 1.6rem;
+            margin-bottom: 0.7rem;
+        }
+
+        ul li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: #c4853c;
+            font-weight: bold;
+        }
+
+        .faq-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .faq-item p:first-child {
+            font-weight: 600;
+            margin-bottom: 0.15rem;
+            color: #3d2c1f;
+        }
+
+        .faq-item p:last-child {
+            margin-left: 0.3rem;
+            color: #4f3d30;
+        }
+
+        /* 圆角按钮感链接 */
+        a {
+            text-decoration: none;
+            color: #7c4e2b;
+            background: #fef7ec;
+            border-radius: 40px;
+            padding: 0.1rem 0.8rem;
+            transition: all 0.15s ease;
+            border: 1px solid #e5c9ab;
+            white-space: nowrap;
+            display: inline-block;
+            line-height: 1.6;
+            font-weight: 500;
+        }
+
+        a:focus,
+        a:hover {
+            background: #eedccb;
+            border-color: #b8824f;
+            color: #4d2e1a;
+            box-shadow: 0 2px 6px rgba(180, 120, 50, 0.2);
+        }
+
+        /* 特别标注——链接自适应 */
+        .inline-link {
+            background: transparent;
+            border: none;
+            padding: 0 0.1rem;
+            border-radius: 0;
+            color: #7a4d2e;
+            font-weight: 600;
+            border-bottom: 2px solid #dba56b;
+            transition: border-color 0.1s;
+        }
+
+        .inline-link:hover {
+            background: transparent;
+            border-bottom-color: #915f33;
+            color: #4f2f1a;
+            box-shadow: none;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.8rem 1.2rem;
+            margin-top: 0.6rem;
+        }
+
+        .footer-links a {
+            padding: 0.4rem 1.2rem;
+            font-size: 0.95rem;
+        }
+
+        .note {
+            background: #faf2e8;
+            border-radius: 50px;
+            padding: 0.6rem 1.2rem;
+            display: inline-block;
+            margin-top: 0.3rem;
+            font-size: 0.9rem;
+            color: #574433;
+        }
+
+        /* 响应式细节 */
+        @media (max-width: 600px) {
+            body {
+                padding: 1rem 0.8rem;
+            }
+            .card {
+                padding: 1.5rem 1.2rem;
+                border-radius: 28px;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+            h2 {
+                font-size: 1.3rem;
+            }
+            .hero-sub {
+                font-size: 1rem;
+            }
+            .footer-links {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .card {
+                padding: 1.2rem 0.9rem;
+            }
+            a {
+                white-space: normal;
+                padding: 0.1rem 0.5rem;
+            }
+        }
+
+        hr {
+            border: none;
+            border-top: 2px dashed #e2c09f;
+            margin: 1rem 0 1.2rem 0;
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrapper">
+
+    <!-- HERO 区 -->
+    <div class="card">
+        <h1>世界杯 · 稳定入口</h1>
+        <div class="hero-sub">围绕赛事内容构建的页面说明与导航</div>
+        <p style="font-size: 1.05rem;">
+            四年一度的足球盛事吸引全球目光。对于希望持续跟踪赛程、球队动态以及深度内容的观众而言，一个可靠、简洁的信息起点尤为关键。本页面从布局与内容组织出发，帮助您快速了解<a href="https://chinesevip-fifa2026.com" class="inline-link">世界杯</a>相关资讯的查找逻辑和常见问题，避免在信息洪流中迷失方向。
+        </p>
+    </div>
+
+    <!-- 优势区：稳定与清晰 -->
+    <div class="card">
+        <h2>为什么需要稳定的浏览起点？</h2>
+        <ul>
+            <li><strong>入口简洁</strong> —— 无需多层跳转，直达核心内容页面，减少无关干扰。</li>
+            <li><strong>结构透明</strong> —— 页面架构清晰，赛程、球队、数据、新闻分别归类，方便按需取用。</li>
+            <li><strong>长期可用</strong> —— 域名与服务器保持稳定，赛事周期内持续更新，避免链接失效或频繁更换地址带来的困惑。</li>
+            <li><strong>适配多端</strong> —— 响应式设计从容应对手机、平板与电脑，随时随地获取信息。</li>
+        </ul>
+        <p style="margin-top: 0.8rem;">
+            熟悉一个固定的信息据点，能显著降低赛前找资料的时间成本。这也是本站设计之初的核心理念。
+        </p>
+    </div>
+
+    <!-- 说明区：页面组织与内容场景 -->
+    <div class="card">
+        <h2>页面内容组织逻辑</h2>
+        <p>
+            在<a href="https://chinesevip-fifa2026.com" class="inline-link">世界杯</a>主页面中，信息按实用场景分为三大模块：
+        </p>
+        <ul>
+            <li><strong>实时动态流</strong> —— 比赛日当天比分、关键事件、红黄牌及换人信息，刷新频率适配赛事节奏。</li>
+            <li><strong>深度参考区</strong> —— 小组积分、对战历史、晋级规则解析，适合赛前研究或复盘时查阅。</li>
+            <li><strong>实用工具箱</strong> —— 赛程日历导出、本地时区转换、推送提醒设置等，减少手动整理的繁琐。</li>
+        </ul>
+        <p>
+            每一模块都配有简短的文字说明，帮助新访客快速定位所需功能。对于频繁使用的用户，也可以直接通过浏览器书签保存特定模块。
+        </p>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="card">
+        <h2>常见疑问 · 摘要</h2>
+
+        <div class="faq-item">
+            <p>▸ 页面信息多久更新一次？</p>
+            <p>比赛日期间，实时比分与事件通常在 1–3 分钟内更新；非比赛日，球队新闻、榜单数据每日同步一次。</p>
+        </div>
+        <div class="faq-item">
+            <p>▸ 是否需要注册或登录才能浏览？</p>
+            <p>不需要。全部浏览功能免费开放，无需注册。部分个性化选项（如提醒）可选用，但并非强制。</p>
+        </div>
+        <div class="faq-item">
+            <p>▸ 移动端体验是否完整？</p>
+            <p>是的。布局针对小屏做了适配，赛程、数据表格均可横向滑动查看，不影响核心内容。</p>
+        </div>
+        <div class="faq-item">
+            <p>▸ 遇到链接打不开或显示异常怎么办？</p>
+            <p>先尝试刷新页面；若持续异常，可更换网络环境或稍候再试。域名与服务器由专业团队维护，极少出现长时间故障。</p>
+        </div>
+        <hr>
+        <p style="font-style: italic; font-size: 0.95rem;">
+            FAQ 列表仅覆盖高频问题。更具体的疑问，可在页面底部「反馈」通道留言，通常在 1 个工作日内得到回复。
+        </p>
+    </div>
+
+    <!-- 底部链接区 -->
+    <div class="card" style="text-align: center;">
+        <p style="font-size: 0.95rem; color: #6b5241; margin-bottom: 1.2rem;">
+            以下链接可帮助您直接跳转至对应的内容板块，或进一步了解网站背景。
+        </p>
+        <div class="footer-links">
+            <a href="https://chinesevip-fifa2026.com">世界杯</a>
+            <a href="https://chinesevip-fifa2026.com/schedule">赛程一览</a>
+            <a href="https://chinesevip-fifa2026.com/teams">球队档案</a>
+            <a href="https://chinesevip-fifa2026.com/news">赛事新闻</a>
+            <a href="https://chinesevip-fifa2026.com/faq">完整 FAQ</a>
+            <a href="https://chinesevip-fifa2026.com/about">关于本站</a>
+        </div>
+        <div class="note">
+            ⚽ 本页面仅作引导与说明，所有内容以官方数据为准。
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
