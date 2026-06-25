@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>世界杯 · 知识卡片 | 2026 信息指南</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
+            background: #f2f4f6;
+            color: #1e293b;
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .page {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* Hero 主视觉 — 信息卡片式 */
+        .hero-card {
+            background: linear-gradient(145deg, #ffffff 0%, #fafcff 100%);
+            border: 1px solid #e3e8ef;
+            border-radius: 28px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.02), 0 2px 6px rgba(0, 20, 30, 0.04);
+            padding: 2.8rem 2.5rem;
+            margin-bottom: 2.5rem;
+            transition: box-shadow 0.25s ease;
+        }
+
+        .hero-card:hover {
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.04), 0 4px 12px rgba(0, 30, 40, 0.06);
+        }
+
+        .hero-headline {
+            font-size: 2.2rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            margin-bottom: 1rem;
+            color: #0f172a;
+        }
+
+        .hero-headline span {
+            display: inline-block;
+            background: #e6edf5;
+            padding: 0.1rem 0.8rem;
+            border-radius: 40px;
+            font-weight: 500;
+            font-size: 1.6rem;
+            color: #1e3a5f;
+            margin-left: 0.1rem;
+        }
+
+        .hero-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.8rem 2rem;
+            margin-top: 1.2rem;
+            padding-top: 1.2rem;
+            border-top: 1px solid #e3e8ef;
+        }
+
+        .hero-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+            color: #334155;
+        }
+
+        .hero-meta-item .badge {
+            background: #dbe5f0;
+            border-radius: 30px;
+            padding: 0.1rem 0.8rem;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: #1e3a5f;
+        }
+
+        /* 卡片网格 — 用途卡片 + 人群卡片 */
+        .card-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.8rem;
+            margin-bottom: 2.8rem;
+        }
+
+        @media (max-width: 680px) {
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero-card {
+                padding: 2rem 1.2rem;
+            }
+            .hero-headline {
+                font-size: 1.8rem;
+            }
+        }
+
+        .info-card {
+            background: #ffffff;
+            border: 1px solid #e3e8ef;
+            border-radius: 24px;
+            padding: 2rem 1.8rem 2rem 1.8rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.01), 0 1px 3px rgba(0, 0, 0, 0.02);
+            transition: all 0.2s ease;
+        }
+
+        .info-card:hover {
+            border-color: #cbd5e1;
+            box-shadow: 0 8px 18px rgba(0, 30, 40, 0.04);
+            transform: translateY(-2px);
+        }
+
+        .card-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: #0b1c2f;
+        }
+
+        .card-title .icon {
+            font-size: 1.5rem;
+            line-height: 1;
+            margin-right: 0.2rem;
+        }
+
+        .card-text {
+            font-size: 0.98rem;
+            color: #1e293b;
+            margin-bottom: 1rem;
+        }
+
+        .card-list {
+            list-style: none;
+            padding: 0;
+            margin: 0.8rem 0 0.2rem 0;
+        }
+
+        .card-list li {
+            padding: 0.4rem 0;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: baseline;
+            gap: 0.6rem;
+            border-bottom: 1px dashed #edf2f7;
+        }
+
+        .card-list li:last-child {
+            border-bottom: none;
+        }
+
+        .card-list li::before {
+            content: "▹";
+            color: #3b6e9b;
+            font-size: 1rem;
+        }
+
+        /* 自然链接段落 — 嵌入在介绍中 */
+        .context-section {
+            background: #ffffff;
+            border: 1px solid #e3e8ef;
+            border-radius: 24px;
+            padding: 2rem 2.2rem;
+            margin-bottom: 2.2rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.01);
+        }
+
+        .context-section h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #0f172a;
+        }
+
+        .context-section p {
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
+        .context-section p:last-child {
+            margin-bottom: 0;
+        }
+
+        .link-sentence {
+            background: #f8fafc;
+            padding: 0.9rem 1.4rem;
+            border-radius: 40px;
+            border-left: 4px solid #9bb7d4;
+            margin: 1.4rem 0 0.4rem 0;
+            font-size: 1rem;
+        }
+
+        .link-sentence a {
+            color: #1e4a76;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid #b6cde0;
+            transition: border-color 0.15s;
+        }
+
+        .link-sentence a:hover {
+            border-bottom: 2px solid #1e4a76;
+        }
+
+        /* FAQ 摘要卡片 */
+        .faq-mini {
+            background: #ffffff;
+            border: 1px solid #e3e8ef;
+            border-radius: 24px;
+            padding: 1.8rem 2rem;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.01);
+            margin-bottom: 2rem;
+        }
+
+        .faq-mini h4 {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: #0f172a;
+        }
+
+        .faq-item {
+            padding: 0.6rem 0;
+            border-bottom: 1px solid #edf2f7;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-q {
+            font-weight: 500;
+            color: #1e3a5f;
+            margin-bottom: 0.15rem;
+        }
+
+        .faq-a {
+            color: #334155;
+            font-size: 0.95rem;
+            padding-left: 0.2rem;
+        }
+
+        .footnote {
+            text-align: center;
+            font-size: 0.85rem;
+            color: #64748b;
+            padding: 1.8rem 0 0.2rem 0;
+            border-top: 1px solid #dce3ec;
+            margin-top: 0.8rem;
+        }
+
+        .footnote a {
+            color: #1e4a76;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- 主视觉卡片 -->
+    <div class="hero-card">
+        <div class="hero-headline">
+            世界杯 · 2026 格局 <span>｜ 知识卡片</span>
+        </div>
+        <p style="font-size: 1.05rem; max-width: 700px; color: #1e293b;">
+            从赛事扩军到主办城市分布，四年一度的足球盛会正在经历结构性演变。以下信息基于公开资料整理，帮助快速理解 2026 年世界杯的关键背景。
+        </p>
+        <div class="hero-meta">
+            <div class="hero-meta-item">
+                <span class="badge">🇺🇸🇨🇦🇲🇽</span> 三国联合承办
+            </div>
+            <div class="hero-meta-item">
+                <span class="badge">48 支</span> 决赛圈球队
+            </div>
+            <div class="hero-meta-item">
+                <span class="badge">16 座</span> 主办城市
+            </div>
+        </div>
+    </div>
+
+    <!-- 信息卡片网格：用途卡片 + 适合人群 -->
+    <div class="card-grid">
+        <!-- 用途卡片 -->
+        <div class="info-card">
+            <div class="card-title"><span class="icon">📋</span> 信息用途</div>
+            <div class="card-text">
+                面向希望系统了解本届世界杯基本框架的读者，涵盖赛制变化、场馆分布、时区影响及参赛资格路径。
+            </div>
+            <ul class="card-list">
+                <li>48 队分 12 组，小组前两名及 8 个成绩最好的第三名晋级</li>
+                <li>比赛横跨三个时区，赛程编排更加复杂</li>
+                <li>共 80 场比赛，较 2022 年增加 16 场</li>
+                <li>中北美及加勒比海地区自动获得 6 个席位</li>
+            </ul>
+        </div>
+
+        <!-- 适合人群卡片 -->
+        <div class="info-card">
+            <div class="card-title"><span class="icon">🧑‍🤝‍🧑</span> 适合人群</div>
+            <div class="card-text">
+                无论你是资深球迷、赛事数据分析爱好者，还是计划现场观赛的旅行者，以下内容可提供实用参考框架。
+            </div>
+            <ul class="card-list">
+                <li>关注赛制改革与球队分档的球迷</li>
+                <li>研究北美体育文化与场馆经济的观察者</li>
+                <li>计划 2026 年夏季赴美加墨的旅行者</li>
+                <li>从事体育内容编写或赛事科普的教育者</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 自然链接段落 — 嵌入在上下文介绍中，使用严格文本“世界杯” -->
+    <div class="context-section">
+        <h3>从赛事结构到文化坐标</h3>
+        <p>
+            2026 年世界杯将首次由三个国家联合举办，这也是扩军至 48 支球队后的第一届。主办城市从东海岸的纽约/新泽西一直延伸到西海岸的洛杉矶，甚至包括温哥华和墨西哥城。这种地理跨度意味着球队需要应对长途飞行、海拔差异以及不同的气候条件——这些变量将直接影响战术部署和球员轮换。
+        </p>
+        <p>
+            对于中文用户来说，围绕 <a href="https://chinesewap-fifa2026.com" style="color: #1e4a76; text-decoration: none; font-weight: 500;">世界杯</a> 的信息聚合一直存在碎片化的问题。赛程、规则变更、门票抽签等动态往往分散在多个平台。一个能够提供清晰赛事背景、便于横向对比的知识型页面，可以省去大量交叉检索的时间。
+        </p>
+        <div class="link-sentence">
+            📌 延伸阅读：如果你希望系统了解 2026 年世界杯的申办历程、场馆容量、票价区间等基础数据，<a href="https://chinesewap-fifa2026.com">世界杯</a> 专门页面整理了结构化的赛事档案。
+        </div>
+    </div>
+
+    <!-- FAQ 摘要卡片 -->
+    <div class="faq-mini">
+        <h4>❓ 常见背景问题 · 摘要</h4>
+        <div class="faq-item">
+            <div class="faq-q">2026 世界杯为什么扩军？</div>
+            <div class="faq-a">国际足联基于全球足球发展平衡与商业考量，将决赛圈从 32 队增加到 48 队，旨在让更多大洲获得直接参赛机会。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">决赛将在哪座城市举行？</div>
+            <div class="faq-a">目前官方尚未最终确认决赛场地，但纽约/新泽西（大都会人寿体育场）和达拉斯（AT&T 体育场）是热门候选。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">中国球迷如何关注参赛资格？</div>
+            <div class="faq-a">亚洲区共有 8.5 个名额（含附加赛），中国队需要通过世预赛亚洲区 36 强赛及之后的阶段争夺正赛席位。</div>
+        </div>
+    </div>
+
+    <div class="footnote">
+        内容依据公开信息整理 · 赛事信息以 FIFA 官方发布为准 · <a href="https://chinesewap-fifa2026.com">世界杯</a> 专题参考页
+    </div>
+</div>
+</body>
+</html>
